@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
-// import Headline from './components/Headline';
+import Headline from './components/Headline';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ThemeProvider from 'react-bootstrap/ThemeProvider';
 
 function App() {
 
@@ -17,18 +19,26 @@ function App() {
     }
     fetch('https://free-news.p.rapidapi.com/v1/search?q=US%20Headlines&lang=en', options)
       .then(res => res.json())
-      .then(data => setHeadlines(data.articles))
-      .then(console.log(headlines))
+      // .then(res => console.log(res.articles))
+      .then(res => setHeadlines(res.articles))
       .catch(e => console.error(e))
   }, [])
 
-    //const headlinesList = headlines.map(headline => <Headline title={headline.title}/>)
-
+  const headlinesList = headlines.map(headline => <Headline 
+    title={headline.title}
+    key={headline._id}
+    link={headline.link}
+    image={headline.media}
+    site={headline.clean_url} 
+  />)
+  
   return (
-    <div>
-      <Header />
-      {/* {headlinesList} */}
-    </div>
+    <ThemeProvider breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}>
+      <div>
+        <Header />
+        {headlinesList}
+      </div>
+    </ThemeProvider>
   );
 }
 
