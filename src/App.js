@@ -35,7 +35,7 @@ function App() {
   return (
     <ThemeProvider 
       breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
-      style={{alignItem: "center"}}
+      style={{alignItem: "center", backgroundColor: "#D76B4F"}}
     >
       <div>
         <Header />
@@ -43,7 +43,6 @@ function App() {
           <Row xs={1} md={2} lg={5}>
               {headlinesList}
           </Row>
-          
         </Container>
         
       </div>
