@@ -1,15 +1,19 @@
 import React from 'react';
-import { Navbar } from 'react-bootstrap';
+import { Navbar, Container } from 'react-bootstrap';
 
 function Header() {
     return (
     <>
         <Navbar 
-            bg="light" 
+            bg="secondary" 
             variant="outline-dark"
             style={{width: "100%", height: "5em", marginBottom: "3em"}}    
         >
-            <Navbar.Brand>Powered by Free News API</Navbar.Brand>
+            <Container position="center">
+                <Navbar.Brand 
+                    as="input"    
+                ></Navbar.Brand>
+            </Container>
         </Navbar> 
     </>
 

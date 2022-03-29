@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Headline from './components/Headline';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {ThemeProvider, Container, Row, Col} from 'react-bootstrap';
+import {ThemeProvider, Container, Row} from 'react-bootstrap';
 
 function App() {
 
@@ -35,12 +35,13 @@ function App() {
   return (
     <ThemeProvider 
       breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
-      style={{alignItem: "center", backgroundColor: "#D76B4F"}}
     >
-      <div>
+      <div 
+        style={{padding: "auto", backgroundColor: "#D76B4F"}}
+      >
         <Header />
         <Container>
-          <Row xs={1} md={2} lg={5}>
+          <Row xs={1} md={2} lg={4}>
               {headlinesList}
           </Row>
         </Container>
