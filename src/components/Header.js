@@ -1,10 +1,38 @@
 import React from 'react';
-import { Navbar, Container } from 'react-bootstrap';
+import { Navbar, Nav, Container } from 'react-bootstrap';
+
 
 function Header(props) {
     
     return (
-        <>
+        <>  
+            <Nav
+                className="justify-content-center" 
+                style={{ 
+                    width: "100%", 
+                    height: "1.5em",
+                    backgroundColor: "#D76B4F",
+                    color: "white" 
+                }}
+            >
+                <Nav.Item>
+                    Powered by Free News API
+                </Nav.Item>
+            </Nav>
+            <Nav
+                className="justify-content-center" 
+                style={{ 
+                    width: "100%", 
+                    height: "1.5em",
+                    backgroundColor: "#D76B4F",
+                    color: "white"
+                }}
+            >
+                <Nav.Item>
+                    Built by Dean Wright
+                </Nav.Item>
+            </Nav>
+
             <Navbar 
                 bg="secondary" 
                 variant="outline-dark"
@@ -14,7 +42,7 @@ function Header(props) {
                     <div style={{margin: "auto", width: "60%", display: "flex", justifyContent: "center"}}>
                         <input 
                             type="text"
-                            placeholder="Search term"
+                            placeholder="Search articles"
                             style={{ width: "100%", height: "2em" }}
                             ref={props.textInput}
                             onChange={props.changeHandler}
@@ -24,7 +52,6 @@ function Header(props) {
                         <br />
                         <button 
                             onClick={props.clickHandler}
-                            
                             style={{
                                 width: "10em", 
                                 height: "2em", 
