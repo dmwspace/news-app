@@ -6,14 +6,14 @@ function Headline(props) {
     const punctuationMarks = ['.', '!', '?', ',', ':', ';', '-', '(']
     const updatedText = props.title.split(' ').slice(0, 12).join(' ')
 
-    const headlineText = updatedText.length < 90 ?
+    const headlineText = updatedText.length < 75 ?
         props.title :
         punctuationMarks.includes(updatedText[updatedText.length - 1]) ?
             updatedText.split(' ').slice(0, -1).join(' ') + "..." :
             updatedText
         
     return (
-        <Card  bg="secondary" border="light" text="light">
+        <Card  bg="secondary" text="light">
             <Card.Link 
                 href={props.link}
                 style={{color: "white", textDecoration: "none", height: "100%", width: "100%"}}

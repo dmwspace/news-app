@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Header from './components/Header';
 import Headline from './components/Headline';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -7,8 +7,25 @@ import {ThemeProvider, Container, Row} from 'react-bootstrap';
 function App() {
 
   const [headlines, setHeadlines] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const textInput = useRef(null);
 
   useEffect(() => {
+    textInput.current.focus();
+    textInput.current.value = "";
+  }, [])
+
+  function handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      clickHandler();
+    }
+  }
+
+  function changeHandler(e) {
+    setSearchTerm(e.target.value)
+  }
+
+  function clickHandler(e) {
     const apiKey = process.env.REACT_APP_FREE_NEWS_API_KEY
     const options = {
       method: "GET",
@@ -17,12 +34,14 @@ function App() {
         'X-RapidAPI-Key': apiKey
       }
     }
-    fetch('https://free-news.p.rapidapi.com/v1/search?q=US%20Headlines&lang=en', options)
+    fetch(`https://free-news.p.rapidapi.com/v1/search?q=${searchTerm}&lang=en`, options)
       .then(res => res.json())
       // .then(res => console.log(res.articles))
       .then(res => setHeadlines(res.articles))
       .catch(e => console.error(e))
-  }, [])
+    textInput.current.focus();
+    textInput.current.value = "";
+  }
 
   const headlinesList = headlines.map(headline => <Headline 
     title={headline.title}
@@ -39,9 +58,14 @@ function App() {
       <div 
         style={{padding: "auto", backgroundColor: "#D76B4F"}}
       >
-        <Header />
+        <Header 
+          clickHandler={clickHandler}
+          textInput={textInput}
+          changeHandler={changeHandler}
+          keypress={handleKeyPress}
+        />
         <Container>
-          <Row xs={1} md={2} lg={4}>
+          <Row xs={1} sm={2} lg={3} xxl={4}>
               {headlinesList}
           </Row>
         </Container>
