@@ -39,21 +39,21 @@ function Header(props) {
                 style={{width: "100%", height: "5em", marginBottom: "3em"}}    
             >
                 <Container>
-                    <div style={{margin: "auto", width: "60%", display: "flex", justifyContent: "center"}}>
-                        <input 
+                    <div style={{margin: "auto", width: "100vw", display: "flex", justifyContent: "center"}}>
+                        <input className="input"
                             type="text"
                             placeholder="Search articles"
-                            style={{ width: "100%", height: "2em" }}
+                            style={{ width: "75%", height: "2em" }}
                             ref={props.textInput}
                             onChange={props.changeHandler}
                             value={props.inputTerm}
                             onKeyPress={props.keypress}
                         />
                         <br />
-                        <button 
+                        <button className="button"
                             onClick={props.clickHandler}
                             style={{
-                                width: "10em", 
+                                width: "25%", 
                                 height: "2em", 
                                 margin: "auto",
                                 backgroundColor: "#D76B4F",

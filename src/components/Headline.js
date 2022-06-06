@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import '../style.css';
 
 function Headline(props) {
 
@@ -13,7 +14,7 @@ function Headline(props) {
             updatedText
         
     return (
-        <Card  bg="secondary" text="light">
+        <Card  className="card" bg="secondary" text="light">
             <Card.Link 
                 href={props.link}
                 style={{color: "white", textDecoration: "none", height: "100%", width: "100%"}}
