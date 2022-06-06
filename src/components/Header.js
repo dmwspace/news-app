@@ -11,7 +11,7 @@ function Header(props) {
                 style={{ 
                     width: "100%", 
                     height: "1.5em",
-                    backgroundColor: "#D76B4F",
+                    backgroundColor: "rgb(50, 50, 50)",
                     color: "white" 
                 }}
             >
@@ -24,7 +24,7 @@ function Header(props) {
                 style={{ 
                     width: "100%", 
                     height: "1.5em",
-                    backgroundColor: "#D76B4F",
+                    backgroundColor: "rgb(50, 50, 50)",
                     color: "white"
                 }}
             >
@@ -34,16 +34,15 @@ function Header(props) {
             </Nav>
 
             <Navbar 
-                bg="secondary" 
                 variant="outline-dark"
-                style={{width: "100%", height: "5em", marginBottom: "3em"}}    
+                style={{width: "100%", height: "5em", marginBottom: "3em", backgroundColor: "rgb(50, 50, 50)"}}    
             >
                 <Container>
                     <div style={{margin: "auto", width: "100vw", display: "flex", justifyContent: "center"}}>
                         <input className="input"
                             type="text"
                             placeholder="Search articles"
-                            style={{ width: "75%", height: "2em" }}
+                            style={{ width: "75%", height: "4vh" }}
                             ref={props.textInput}
                             onChange={props.changeHandler}
                             value={props.inputTerm}
@@ -54,7 +53,7 @@ function Header(props) {
                             onClick={props.clickHandler}
                             style={{
                                 width: "25%", 
-                                height: "2em", 
+                                height: "4vh", 
                                 margin: "auto",
                                 backgroundColor: "#D76B4F",
                                 color: "white"
