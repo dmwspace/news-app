@@ -16,7 +16,7 @@ function Header(props) {
                 }}
             >
                 <Nav.Item>
-                    Powered by Free News API
+                    Powered by Newscatcher API
                 </Nav.Item>
             </Nav>
             <Nav
